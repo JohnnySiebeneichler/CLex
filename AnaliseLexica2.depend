@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1335416970 source:/home/a/Faculdade/Compilators/AnaliseLexica2/analise.c
+	"analise.h"
+
+1335416939 /home/a/Faculdade/Compilators/AnaliseLexica2/analise.h
+	<stdbool.h>
+	<stdio.h>
+	"util.h"
+	"erros.h"
+	"pilha.h"
+
+1335408765 /home/a/Faculdade/Compilators/AnaliseLexica2/util.h
+
+1335417018 /home/a/Faculdade/Compilators/AnaliseLexica2/erros.h
+	<stdio.h>
+
+1335417032 /home/a/Faculdade/Compilators/AnaliseLexica2/pilha.h
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1335417008 source:/home/a/Faculdade/Compilators/AnaliseLexica2/erros.c
+	"erros.h"
+
+1335416908 source:/home/a/Faculdade/Compilators/AnaliseLexica2/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1335407631 source:/home/a/Faculdade/Compilators/AnaliseLexica2/pilha.c
+	"pilha.h"
+
