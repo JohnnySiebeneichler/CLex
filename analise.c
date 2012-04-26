@@ -155,7 +155,7 @@ int quando_preproc(analisador *a, int ch) {
 
 	if (ch == '\n') {
 		if (a->subestado_atual != _barrainvertida) {
-			mudar_estado(a, source);
+			mudar_estado(a, _codigo);
 		}
 		else return SINAL_REMOVER_ANTERIOR;
 	}

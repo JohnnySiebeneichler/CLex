@@ -39,7 +39,8 @@ void imprimir_relatorio_erros(pilha *p) {
 
 	int c;
 	for (c = 0; c < p->q; c++) {
-		imprimir_msg_erro(*access(p, c));
+		ocorrencia_de_erro *err = access(p, c);
+		imprimir_msg_erro(*err);
 	}
 }
 

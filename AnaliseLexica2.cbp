@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="erros.h" />
+		<Unit filename="es.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="es.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

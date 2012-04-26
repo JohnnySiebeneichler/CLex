@@ -29,3 +29,30 @@
 1335407631 source:/home/a/Faculdade/Compilators/AnaliseLexica2/pilha.c
 	"pilha.h"
 
+1335407631 source:/home/a/Faculdade/Compilators/CLex/pilha.c
+	"pilha.h"
+
+1335417032 /home/a/Faculdade/Compilators/CLex/pilha.h
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1335464877 source:/home/a/Faculdade/Compilators/CLex/analise.c
+	"analise.h"
+
+1335463502 /home/a/Faculdade/Compilators/CLex/analise.h
+	<stdbool.h>
+	<stdio.h>
+	"util.h"
+	"erros.h"
+	"pilha.h"
+
+1335408765 /home/a/Faculdade/Compilators/CLex/util.h
+
+1335463737 /home/a/Faculdade/Compilators/CLex/erros.h
+	<stdio.h>
+	"pilha.h"
+
+1335464903 source:/home/a/Faculdade/Compilators/CLex/erros.c
+	"erros.h"
+
