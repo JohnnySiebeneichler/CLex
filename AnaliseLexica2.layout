@@ -2,10 +2,10 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="analise.c" open="1" top="0" tabpos="3">
-		<Cursor position="3639" topLine="0" />
+		<Cursor position="4529" topLine="0" />
 	</File>
 	<File name="analise.h" open="1" top="0" tabpos="1">
-		<Cursor position="371" topLine="61" />
+		<Cursor position="2895" topLine="65" />
 	</File>
 	<File name="erros.c" open="1" top="0" tabpos="5">
 		<Cursor position="1031" topLine="13" />
@@ -13,14 +13,14 @@
 	<File name="erros.h" open="1" top="0" tabpos="4">
 		<Cursor position="1168" topLine="23" />
 	</File>
-	<File name="es.c" open="1" top="1" tabpos="7">
-		<Cursor position="585" topLine="0" />
+	<File name="es.c" open="1" top="0" tabpos="7">
+		<Cursor position="684" topLine="8" />
 	</File>
 	<File name="es.h" open="1" top="0" tabpos="6">
-		<Cursor position="155" topLine="0" />
+		<Cursor position="667" topLine="0" />
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="2">
-		<Cursor position="73" topLine="0" />
+	<File name="main.c" open="1" top="1" tabpos="2">
+		<Cursor position="111" topLine="0" />
 	</File>
 	<File name="pilha.c" open="0" top="0" tabpos="8">
 		<Cursor position="128" topLine="0" />

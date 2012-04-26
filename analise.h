@@ -92,4 +92,8 @@ int quando_preproc(analisador *a, int ch);
 o estado. */
 bool inicio_de_comentario(analisador *a, int ch);
 
+
+/** Roda o analisador até o final, lendo da entrada e escrevendo na saída. */
+void rodar(analisador *a);
+
 #endif

@@ -3,6 +3,7 @@
 
 int main(int argc, char **argv)
 {
-	printf("%s\n", argv[1]);
+	FILE *in, *out;
+
 	return 0;
 }

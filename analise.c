@@ -37,7 +37,7 @@ void mudar_estado(analisador *a, estado_geral para) {
 
 int escolhe_estado(analisador *a, int ch) {
 
-	if (ch == EOF) return ch;
+	if (ch == EOF) return EOF;
 	if (ch == '\n') a->linha_atual++;
 
 	switch (a->estado_atual) {
@@ -178,6 +178,36 @@ bool inicio_de_comentario(analisador *a, int ch) {
 		else return false;
 	}
 	return true;
+}
+
+
+
+void rodar(analisador *a) {
+	if (!a || !a->in || !a->out) return false;
+
+	int ch_anterior = 0;
+	int ch = fgetc(a->in);
+	int retorno;
+
+	while (1) {
+		retorno = escolhe_estado(a, ch);
+
+		switch (retorno) {
+			case EOF: fputc(ch_anterior, a->out); return;
+			case SINAL_REMOVER_ANTERIOR: retorno = 0; break;
+			case 0:
+				if (ch_anterior != 0) {
+					fputc(ch_anterior, a->out);
+				}
+				retorno = 0;
+				break;
+			default:
+				if (ch_anterior != 0) {
+					fputc(ch_anterior, a->out);
+				}
+		}
+		ch_anterior = retorno;
+	}
 }
 
 

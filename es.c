@@ -8,13 +8,35 @@ Define os arquivos de entrada a saída. */
 
 
 
-/** Com base nos parâmetros passados ao programa, definir e abrir os arquivos de
-entrada e saída para o analisador léxico. Caso o arquivo de entrada não tenha
-sido definido, usa-se stdin; caso o arquivo de saída não tenha sido definido, u-
-sa-se stdout. Caso um deles tenha sido definido mas ocorra erro ao abri-lo, am-
-bos são definidos como NULL. */
 void abrir_arquivos(int argc, char **argv, FILE **in, FILE **out) {
+	*in = stdoin;
+	*out = stdout;
 
+	int c1;
+	for (c1 = 1; c1 < argc - 1; c1++) {
+		if (!strcmp(argc[c1], "-i")) {
+			*in = fopen(argc[c1+1], "r");
+			if (!*in) {
+				*out = NULL;
+				return;
+			}
+		}
+
+		else if (!strcmp(argc[c1], "-o")) {
+			*out = fopen(argc[c1+1], "w");
+			if (!*out) {
+				*in = NULL;
+				return;
+			}
+		}
+	}
+}
+
+
+
+void fechar_arquivos(FILE **in, FILE **out) {
+	if (*in && *in != stdin) fclose(*in);
+	if (*out && *out != stdout) fclose(*out);
 }
 
 #endif
