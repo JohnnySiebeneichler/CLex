@@ -60,6 +60,9 @@ typedef struct {
 locações. */
 bool inicializar_analisador(analisador *a, FILE *in, FILE *out);
 
+/** Desaloca as estruturas, fecha os arquivos, e anula as variáveis. */
+void finalizar_analisador(analisador *a);
+
 
 /** Declara a ocorrência de um erro na linha atual. */
 void declarar_erro(analisador *a, tipo_erro tipo);

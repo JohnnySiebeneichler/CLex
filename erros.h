@@ -44,7 +44,7 @@ erros. */
 void imprimir_relatorio_erros(pilha *p);
 
 
-#define DEBUG
+//#define DEBUG
 
 
 #ifdef DEBUG

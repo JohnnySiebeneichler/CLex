@@ -9,21 +9,21 @@ Define os arquivos de entrada a saída. */
 
 
 void abrir_arquivos(int argc, char **argv, FILE **in, FILE **out) {
-	*in = stdoin;
+	*in = stdin;
 	*out = stdout;
 
 	int c1;
 	for (c1 = 1; c1 < argc - 1; c1++) {
-		if (!strcmp(argc[c1], "-i")) {
-			*in = fopen(argc[c1+1], "r");
+		if (!strcmp(argv[c1], "-i")) {
+			*in = fopen(argv[c1+1], "r");
 			if (!*in) {
 				*out = NULL;
 				return;
 			}
 		}
 
-		else if (!strcmp(argc[c1], "-o")) {
-			*out = fopen(argc[c1+1], "w");
+		else if (!strcmp(argv[c1], "-o")) {
+			*out = fopen(argv[c1+1], "w");
 			if (!*out) {
 				*in = NULL;
 				return;

@@ -21,6 +21,17 @@ bool inicializar_analisador(analisador *a, FILE *in, FILE *out) {
 }
 
 
+void finalizar_analisador(analisador *a) {
+	if (!a) return;
+
+	fechar_arquivos(&a->in, &a->out);
+	destroi_pilha(&a->erros);
+	a->linha_atual = 0;
+	a->estado_atual = _codigo;
+	a->subestado_atual = _nada;
+}
+
+
 void declarar_erro(analisador *a, tipo_erro tipo) {
 	ocorrencia_de_erro ode;
 	ode.linha = a->linha_atual;
@@ -37,7 +48,12 @@ void mudar_estado(analisador *a, estado_geral para) {
 
 int escolhe_estado(analisador *a, int ch) {
 
-	if (ch == EOF) return EOF;
+	if (ch == EOF) {
+		if (a->subestado_atual == _barrainvertida) {
+			declarar_erro(a, ERRO_SEM_LINHA_PARA_CONTINUAR);
+		}
+		return EOF;
+	}
 	if (ch == '\n') a->linha_atual++;
 
 	switch (a->estado_atual) {
@@ -117,10 +133,11 @@ int quando_cadeia(analisador *a, int ch) {
 		case '\n': declarar_erro(a,
 					ERRO_STRING_NAO_FECHADO_CORRETAMENTE);
 		case '"': mudar_estado(a, _codigo); break;
-		case '\\': a->subestado_atual == _barrainvertida; return ch;
+		case '\\': a->subestado_atual = _barrainvertida; return ch;
 		}
 	}
 	else if (ch == '\n') {
+		a->subestado_atual = _nada;
 		return SINAL_REMOVER_ANTERIOR;
 	}
 	a->subestado_atual = _nada;
@@ -176,21 +193,26 @@ bool inicio_de_comentario(analisador *a, int ch) {
 			mudar_estado(a, _coment);
 		}
 		else return false;
+		return true;
 	}
-	return true;
+	return false;
 }
 
 
 
 void rodar(analisador *a) {
-	if (!a || !a->in || !a->out) return false;
+	if (!a || !a->in || !a->out) return;
 
 	int ch_anterior = 0;
-	int ch = fgetc(a->in);
+	int ch;
 	int retorno;
 
 	while (1) {
+
+		ch = fgetc(a->in);
 		retorno = escolhe_estado(a, ch);
+		debug_msg("%c %d (%d %d)\n", ch, retorno, a->estado_atual,
+			a->subestado_atual);
 
 		switch (retorno) {
 			case EOF: fputc(ch_anterior, a->out); return;

@@ -1,0 +1,72 @@
+# depslib dependency file v1.0
+1335416970 source:/home/a/Faculdade/Compilators/AnaliseLexica2/analise.c
+	"analise.h"
+
+1335416939 /home/a/Faculdade/Compilators/AnaliseLexica2/analise.h
+	<stdbool.h>
+	<stdio.h>
+	"util.h"
+	"erros.h"
+	"pilha.h"
+
+1335408765 /home/a/Faculdade/Compilators/AnaliseLexica2/util.h
+
+1335417018 /home/a/Faculdade/Compilators/AnaliseLexica2/erros.h
+	<stdio.h>
+
+1335417032 /home/a/Faculdade/Compilators/AnaliseLexica2/pilha.h
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1335417008 source:/home/a/Faculdade/Compilators/AnaliseLexica2/erros.c
+	"erros.h"
+
+1335416908 source:/home/a/Faculdade/Compilators/AnaliseLexica2/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1335407631 source:/home/a/Faculdade/Compilators/AnaliseLexica2/pilha.c
+	"pilha.h"
+
+1335407631 source:/home/a/Faculdade/Compilators/CLex/pilha.c
+	"pilha.h"
+
+1335417032 /home/a/Faculdade/Compilators/CLex/pilha.h
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1335476255 source:/home/a/Faculdade/Compilators/CLex/analise.c
+	"analise.h"
+
+1335471620 /home/a/Faculdade/Compilators/CLex/analise.h
+	<stdbool.h>
+	<stdio.h>
+	"util.h"
+	"erros.h"
+	"pilha.h"
+
+1335408765 /home/a/Faculdade/Compilators/CLex/util.h
+
+1335475811 /home/a/Faculdade/Compilators/CLex/erros.h
+	<stdio.h>
+	"pilha.h"
+
+1335475781 source:/home/a/Faculdade/Compilators/CLex/erros.c
+	"erros.h"
+
+1335471883 source:/home/a/Faculdade/Compilators/CLex/es.c
+	"es.h"
+
+1335468369 /home/a/Faculdade/Compilators/CLex/es.h
+	<stdio.h>
+	"erros.h"
+
+1335475804 source:/home/a/Faculdade/Compilators/CLex/main.c
+	<stdio.h>
+	<stdlib.h>
+	"analise.h"
+	"erros.h"
+	"es.h"
+
