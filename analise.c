@@ -56,7 +56,31 @@ int escolhe_estado(analisador *a, int ch) {
 
 int quando_codigo(analisador *a, int ch) {
 
+	//Verifica se um comentário está iniciando.
+	if (inicio_de_comentario(a, ch)) return SINAL_REMOVER_ANTERIOR;
 
+	//Verifica se está iniciando uma diretiva do preprocessador. Note que só
+	//inicia se os caracteres antes do # na linha são tab ou espaço.
+	if (a->subestado_atual == _nada) {
+		if (ch == '#') {
+			mudar_estado(a, _preproc);
+			return ch;
+		}
+	}
+
+	//Verifica se está com mais de um espaço/tab/newline seguido.
+	if (a->subestado_atual == _nada || a->subestado_atual == _espaco) {
+		if (nao_imprimivel(ch)) return 0;
+	}
+
+	if (ch == '/') a->subestado_atual = _barra;
+	else if (ch == '\\') a->subestado_atual = _barrainvertida;
+	else if (nao_imprimivel(ch)) a->subestado_atual = _espaco;
+	else if (ch == '"') mudar_estado(a, _cadeia);
+	else if (ch == '\'') mudar_estado(a, _caractere);
+	else a->subestado_atual = _token;
+
+	return ch;
 
 }
 

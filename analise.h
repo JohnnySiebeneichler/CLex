@@ -8,6 +8,8 @@ kens.
 
 #define SINAL_REMOVER_ANTERIOR -2
 
+#define nao_imprimivel(ch) (ch == ' ' || ch == '\n' || ch == '\t')
+
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -19,23 +21,26 @@ kens.
 
 /** O tipo de texto que o analisador está lendo no código. */
 typedef enum {
-	_codigo,		//Código fonte que será compilado.
-	_coment,		//Comentários com /* ou /**
+	_codigo,	//Código compilável.
+	_coment,	//Comentários com /* ou /**
 	_coment_eol,	//Comentários com //
-	_cadeia,		//strings, entre aspas duplas
+	_cadeia,	//strings, entre aspas duplas
 	_caractere,	//entre aspas simples
-	_preproc		//diretiva do preprocessador, inicia por #
+	_preproc	//diretiva do preprocessador, inicia por #
 }estado_geral;
 
 
 /** O tipo de token que está sendo lido no código compilável. */
 typedef enum {
-	_nada,		//espaços, tabs, newlines.
-	_numero,
-	_nome,		//nomes de funções, variáveis, macros, etc.
-	_barra,
-	_barrainvertida,
-	_asterisco,	//Asterisco em comentário (para ver se finaliza).
+	_nada,		//Quando não é nada especial.
+	_espaco,	//whitespace ' ' ou tab '\t', em código compilável.
+	_token,		//nomes de funções, variáveis, macros, etc., em código
+			//compilável.
+	_barra,		//pode iniciar comentário, em codigo compilável e dire-
+			//tivas.
+	_barrainvertida,//Usada para caracteres de escape, em cadeias e direti-
+			//vas.
+	_asterisco,	//Pode finalizar comentário.
 }subestado;
 
 
