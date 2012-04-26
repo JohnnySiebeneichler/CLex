@@ -28,4 +28,19 @@ linha seguinte para juntar.\n");
 	}
 }
 
+
+
+
+void imprimir_relatorio_erros(pilha *p) {
+	if (!p) return;
+
+	fprintf(stderr, "Foram encontrados %d erros durante a análise léxica:\n"
+		, p->q);
+
+	int c;
+	for (c = 0; c < p->q; c++) {
+		imprimir_msg_erro(*access(p, c));
+	}
+}
+
 #endif

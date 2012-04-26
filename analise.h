@@ -9,6 +9,7 @@ kens.
 #define SINAL_REMOVER_ANTERIOR -2
 
 #define nao_imprimivel(ch) (ch == ' ' || ch == '\n' || ch == '\t')
+#define carac_invalido(ch) (ch >= 127 || ch <= 7 || (ch >= 12 && ch <= 31))
 
 
 #include <stdbool.h>

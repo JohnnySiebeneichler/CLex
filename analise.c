@@ -56,6 +56,11 @@ int escolhe_estado(analisador *a, int ch) {
 
 int quando_codigo(analisador *a, int ch) {
 
+	if (carac_invalido(ch)) {
+		declarar_erro(a, ERRO_CARACTERE_INVALIDO);
+		return 0;
+	}
+
 	//Verifica se um comentário está iniciando.
 	if (inicio_de_comentario(a, ch)) return SINAL_REMOVER_ANTERIOR;
 
@@ -140,6 +145,11 @@ int quando_caractere(analisador *a, int ch) {
 }
 
 int quando_preproc(analisador *a, int ch) {
+
+	if (carac_invalido(ch)) {
+		declarar_erro(a, ERRO_CARACTERE_INVALIDO);
+		return 0;
+	}
 
 	if (inicio_de_comentario(a, ch)) return SINAL_REMOVER_ANTERIOR;
 

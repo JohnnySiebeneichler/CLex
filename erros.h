@@ -6,6 +6,7 @@ Lida com erros que podem ocorrer durante a análise léxica.
 
 
 #include <stdio.h>
+#include "pilha.h"
 
 
 typedef enum {
@@ -37,6 +38,10 @@ typedef struct {
 
 /** Imprime uma mensagem de erro no stderr. Quebra linha. */
 void imprimir_msg_erro(ocorrencia_de_erro err);
+
+/** Imprime todos os erros de uma pilha de ocorrencia_de_erro, e a quantidade de
+erros. */
+void imprimir_relatorio_erros(pilha *p);
 
 
 #define DEBUG

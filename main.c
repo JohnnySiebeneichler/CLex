@@ -3,6 +3,5 @@
 
 int main()
 {
-    printf("%d", 'e');
-    return 0;
+	return 0;
 }
