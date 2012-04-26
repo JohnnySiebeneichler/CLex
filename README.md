@@ -15,4 +15,3 @@ Para rodar, utilize o seguinte comando:
 
 
 Caso não tenha sido definido, o programa utilizará stdin para entrada e/ou stdout para saída. Caso não consiga abrir algum deles, vai fechar.
-
